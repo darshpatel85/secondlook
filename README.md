@@ -88,7 +88,7 @@ Hosted servers need a browser login once. The Settings page shows the command to
 
 ## Hosting the landing page
 
-The landing page is static, so it deploys to Vercel as is: import the repository, keep the root directory as the repository root, and the `vercel.json` at the root tells Vercel to install and build only `apps/landing`. The server and web app are not hosted there; they run on each reviewer's machine.
+The landing page is static, so it deploys to Vercel as is: import the repository and choose `apps/landing` as the root directory (Vercel offers it as "Import single project"). The `vercel.json` in that folder installs only the landing workspace and caches the tour video. The server and web app are not hosted there; they run on each reviewer's machine.
 
 ## Where data lives
 

@@ -10,4 +10,5 @@ integrations.json
 # task worktrees
 .claude/worktrees/
 apps/landing/dist
+apps/landing/.vercel
 .vercel
