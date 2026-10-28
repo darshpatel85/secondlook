@@ -91,6 +91,11 @@ code {
   padding: 1px 5px;
   border-radius: 4px;
   background: var(--brand-soft);
+  white-space: nowrap;
+}
+
+pre code {
+  white-space: pre;
 }
 
 .wrap {
@@ -178,6 +183,7 @@ code {
   color: var(--text-muted);
   font-size: 14px;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -520,6 +526,58 @@ code {
   align-items: center;
 }
 
+.checklist a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 3px;
+}
+
+.checklist a:hover {
+  text-decoration-color: var(--brand);
+}
+
+.install-steps {
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+  display: grid;
+  gap: 12px;
+}
+
+.install-steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 36px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.install-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--brand-soft);
+  color: var(--brand);
+  font-size: 13px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+.install .fineprint + .fineprint {
+  margin-top: 8px;
+}
+
+.nav-inner .btn-small svg {
+  margin-right: -2px;
+}
+
 .checklist {
   list-style: none;
   margin: 20px 0 0;
@@ -529,12 +587,14 @@ code {
 }
 
 .checklist li {
-  display: flex;
-  gap: 10px;
+  position: relative;
+  padding-left: 28px;
 }
 
 .checklist li::before {
   content: "✓";
+  position: absolute;
+  left: 0;
   color: var(--brand);
   font-weight: 700;
 }
@@ -677,17 +737,19 @@ summary:focus-visible {
   }
 }
 
-@media (max-width: 640px) {
-  .wrap {
-    padding: 0 16px;
-  }
-
+@media (max-width: 960px) {
   .nav-links {
     display: none;
   }
 
-  .nav-inner .btn {
+  .nav-inner .nav-links + .btn {
     margin-left: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    padding: 0 16px;
   }
 
   .hero {

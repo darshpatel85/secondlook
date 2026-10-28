@@ -13,6 +13,9 @@ A pair-review dashboard. You paste a GitHub pull request URL, a Claude Code agen
 ## Install and run
 
 ```sh
+git clone https://github.com/darshpatel85/secondlook.git
+cd secondlook
+cp .env.example .env   # set GITHUB_TOKEN
 pnpm install
 pnpm dev
 ```
