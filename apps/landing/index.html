@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="description"
+      content="Second Look is a self-hosted pair reviewer for pull requests. An AI agent reads the change with you, a second agent tries to disprove every finding, and only what you accept reaches GitHub."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Second Look</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="#top" aria-label="Second Look, top of page">
+          <svg width="24" height="24" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <circle cx="18" cy="24" r="12" stroke="currentColor" stroke-width="4" />
+            <circle cx="30" cy="24" r="12" stroke="var(--brand)" stroke-width="4" />
+          </svg>
+          <span>second<span class="accent">look</span></span>
+        </a>
+        <nav class="nav-links" aria-label="Sections">
+          <a href="#tour">Tour</a>
+          <a href="#how">How it works</a>
+          <a href="#features">Features</a>
+          <a href="#install">Install</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <a class="btn btn-primary btn-small" href="#install">Get started</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <p class="eyebrow">Self-hosted AI code review</p>
+            <h1>A second pair of eyes that shows its working.</h1>
+            <p class="lede">
+              Second Look reads a pull request with you, step by step. It checks the ticket, the design and the code around
+              the change, a second agent tries to prove each finding wrong, and nothing reaches GitHub until you accept it.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#install">Run it on your machine</a>
+              <a class="btn" href="#tour">▶ Watch the 60-second tour</a>
+            </div>
+            <p class="fineprint">Runs on your machine with your own GitHub token and Claude sign-in. Nothing goes through our servers.</p>
+          </div>
+
+          <div class="mock" aria-label="Example of a review in Second Look" role="img">
+            <div class="mock-bar">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="mock-title">acme/widgets-api · #412 Add CSV export</span>
+            </div>
+            <div class="mock-body">
+              <ol class="mock-steps">
+                <li class="done"><span class="risk risk-low">low</span>Rename export helpers</li>
+                <li class="active"><span class="risk risk-high">high</span>Add export permissions</li>
+                <li><span class="risk risk-medium">medium</span>Stream rows to the client</li>
+              </ol>
+              <div class="mock-finding">
+                <div class="mock-finding-head">
+                  <span class="sev">should fix</span>
+                  <span class="verified">✓ verified</span>
+                </div>
+                <p>
+                  The export skips the branch check that the list endpoint does, so any signed-in user can download every
+                  branch's rows. Reuse <code>scopeToBranch</code> before the query.
+                </p>
+                <p class="mock-evidence">Evidence: exports.ts:42, orders/list.ts:18</p>
+                <div class="mock-actions">
+                  <span class="chip chip-accept">Accept</span>
+                  <span class="chip">Park</span>
+                  <span class="chip">Reject</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" aria-label="What makes it different">
+        <div class="wrap band-grid">
+          <div><strong>You decide what gets posted</strong><span>Findings are rows you accept, reject or park. Only accepted ones are posted.</span></div>
+          <div><strong>Every finding is challenged</strong><span>A separate read-only agent tries to disprove each one before you see it.</span></div>
+          <div><strong>Your attention goes where the risk is</strong><span>Migrations, auth and money always get a full read. Renames don't.</span></div>
+        </div>
+      </section>
+
+      <section id="tour" class="section section-tour">
+        <div class="wrap">
+          <h2>See a review in 60 seconds</h2>
+          <p class="section-lede">From pasting a pull request to posting the one finding that mattered.</p>
+          <div class="video-frame">
+            <video controls playsinline preload="metadata" poster="/secondlook-poster.jpg" aria-label="Second Look product tour">
+              <source src="/secondlook.mp4" type="video/mp4" />
+              Your browser can't play this video. <a href="/secondlook.mp4">Download it</a> instead.
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <section id="how" class="section">
+        <div class="wrap">
+          <h2>How a review goes</h2>
+          <p class="section-lede">Most AI reviewers leave a pile of comments. Second Look works through the change with you instead.</p>
+          <ol class="steps">
+            <li>
+              <span class="step-num">1</span>
+              <h3>Paste a pull request</h3>
+              <p>Second Look checks out the branch in its own worktree and reads the diff, the repository's docs and your review guide.</p>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <h3>Agree what it's for</h3>
+              <p>The agent reads the ticket and design, sums up the intent, and asks you only what the code can't answer.</p>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <h3>Walk the change together</h3>
+              <p>The change is split into steps and routed by risk. You read the risky parts closely and skim the rest.</p>
+            </li>
+            <li>
+              <span class="step-num">4</span>
+              <h3>Post what you accept</h3>
+              <p>Accepted findings go to GitHub as one review, written the way a friendly teammate would write them.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="features" class="section section-muted">
+        <div class="wrap">
+          <h2>Built for reviewers, not dashboards</h2>
+          <div class="features">
+            <article>
+              <h3>Finding verifier</h3>
+              <p>Each finding gets a second, read-only run that tries to prove it wrong. Refuted ones are folded away, not deleted.</p>
+            </article>
+            <article>
+              <h3>Risk routing</h3>
+              <p>Low-risk steps are left to the agent and the verifier. High-risk steps get your full attention. You can change any step.</p>
+            </article>
+            <article>
+              <h3>Context the tests can't see</h3>
+              <p>Before reviewing lines, the agent records what uses the changed code, the data it touches and which code covers each acceptance criterion.</p>
+            </article>
+            <article>
+              <h3>Evidence on every finding</h3>
+              <p>Blocking findings need file and line evidence. If the agent can't show it, the finding becomes a question instead.</p>
+            </article>
+            <article>
+              <h3>Memory per repository</h3>
+              <p>After each review it suggests what to remember about your preferences. You prune the list, and the next review uses it.</p>
+            </article>
+            <article>
+              <h3>Connect only what you use</h3>
+              <p>Jira, Figma or any MCP server can be added from Settings. With none, it reviews from the repository and the PR alone.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="install" class="section">
+        <div class="wrap install">
+          <div>
+            <h2>Run it in five minutes</h2>
+            <p class="section-lede">Second Look runs on your machine. You need:</p>
+            <ul class="checklist">
+              <li>Node 24 and pnpm 10</li>
+              <li>Git</li>
+              <li>A GitHub token with repo read and pull request write</li>
+              <li>The Claude Code CLI, signed in with <code>claude login</code></li>
+            </ul>
+            <p class="fineprint">Then open the web app, add a repository and paste a pull request link. Integrations are optional and live under Settings.</p>
+          </div>
+          <div class="terminal" aria-label="Install commands">
+            <div class="terminal-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <pre><code><span class="prompt">$</span> git clone &lt;your copy of second-look&gt;
+<span class="prompt">$</span> cd second-look
+<span class="prompt">$</span> cp .env.example .env   <span class="comment"># add GITHUB_TOKEN</span>
+<span class="prompt">$</span> pnpm install
+<span class="prompt">$</span> pnpm dev
+<span class="comment">  API  http://127.0.0.1:4100</span>
+<span class="comment">  Web  http://localhost:5173</span></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section section-muted">
+        <div class="wrap faq">
+          <h2>Questions</h2>
+          <details>
+            <summary>Where does my code go?</summary>
+            <p>Repositories are cloned into a data folder on your machine. The agent reads them there through the Claude Code CLI, so the parts it reads are sent to Anthropic's API under your own Claude account. Nothing is sent to us.</p>
+          </details>
+          <details>
+            <summary>Does it post anything without asking?</summary>
+            <p>No. The agent is read-only. It cannot edit files, run your build or post to GitHub. Only findings you accept are posted, when you press Post.</p>
+          </details>
+          <details>
+            <summary>Do I need Jira or Figma?</summary>
+            <p>No. Without them, the agent works from the pull request description and the code. Connect them in Settings if you want tickets and designs read too.</p>
+          </details>
+          <details>
+            <summary>Can I teach it our conventions?</summary>
+            <p>Yes. Each repository points to a review guide, and the agent also reads the docs in the repository and what it remembered from earlier reviews.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="wrap cta-inner">
+          <h2>Review the next pull request with a second look.</h2>
+          <a class="btn btn-primary" href="#install">Get started</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <span>Second Look</span>
+        <span class="muted">Self-hosted pair review for pull requests.</span>
+      </div>
+    </footer>
+  </body>
+</html>

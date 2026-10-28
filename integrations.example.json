@@ -1,0 +1,13 @@
+{
+  "jira": {},
+  "figma": {},
+  "servers": {
+    "team-kb": {
+      "label": "Team KB",
+      "type": "stdio",
+      "command": "npx",
+      "args": ["tsx", "/absolute/path/to/your/mcp/server.ts"],
+      "guidance": "Indexes the old system's source. When a change claims parity with the old system, look up what the old code did before judging the new code."
+    }
+  }
+}

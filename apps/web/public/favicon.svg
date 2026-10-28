@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <style>
+    .lens { stroke: #1f2328; }
+    @media (prefers-color-scheme: dark) { .lens { stroke: #f0f6fc; } }
+  </style>
+  <circle class="lens" cx="17" cy="24" r="12" stroke-width="5"/>
+  <circle cx="31" cy="24" r="12" stroke="#7F77DD" stroke-width="5"/>
+</svg>

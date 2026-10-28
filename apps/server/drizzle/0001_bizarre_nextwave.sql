@@ -1,0 +1,1 @@
+ALTER TABLE `doc_edits` ADD `error` text;

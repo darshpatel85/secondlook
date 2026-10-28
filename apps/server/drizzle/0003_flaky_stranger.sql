@@ -1,0 +1,1 @@
+ALTER TABLE `reviews` ADD `stale_steps` text DEFAULT '[]' NOT NULL;

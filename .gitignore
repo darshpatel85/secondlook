@@ -1,0 +1,11 @@
+node_modules/
+dist/
+data/
+.env
+.env.local
+integrations.json
+*.log
+.DS_Store
+
+# task worktrees
+.claude/worktrees/

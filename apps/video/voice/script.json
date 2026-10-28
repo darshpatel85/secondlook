@@ -1,0 +1,16 @@
+{
+  "engine": "edge",
+  "edgeVoice": "en-US-AndrewMultilingualNeural",
+  "sayVoice": "Samantha",
+  "rate": "+5%",
+  "lines": {
+    "intro": "Second Look. A second pair of eyes that shows its working.",
+    "problem": "Most AI reviewers leave a pile of comments. One of them matters. Which one?",
+    "paste": "Paste a pull request. It checks out the branch in its own worktree, reads your docs, and never edits anything.",
+    "intent": "Before any review, it reads the ticket and the design, sums up the intent, and asks you only what the code can't answer.",
+    "review": "Then you walk the change together. Steps are routed by risk. Every finding carries evidence, and a second agent tries to prove it wrong before you see it.",
+    "post": "You decide. Accept, park, or reject. Only what you accept is posted, written like a teammate, under your name.",
+    "features": "Self-hosted, on your own keys. Connect Jira, Figma, or any MCP server. Or nothing at all.",
+    "outro": "Second Look. Run it on your machine."
+  }
+}
