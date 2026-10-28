@@ -83,6 +83,10 @@ Settings are saved to `data/integrations.json` (set `AI_REVIEW_INTEGRATIONS` to 
 
 Hosted servers need a browser login once. The Settings page shows the command to run; inside that session use `/mcp` to sign in. The tokens are stored by the Claude CLI and reused by every review.
 
+## Hosting the landing page
+
+The landing page is static, so it deploys to Vercel as is: import the repository, keep the root directory as the repository root, and the `vercel.json` at the root tells Vercel to install and build only `apps/landing`. The server and web app are not hosted there; they run on each reviewer's machine.
+
 ## Where data lives
 
 Everything the server writes goes under `data/` at the workspace root (gitignored). Set `AI_REVIEW_DATA_DIR` to put it somewhere else.
